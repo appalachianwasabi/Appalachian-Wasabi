@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Appalachian Wasabi</title>
+  <meta name="description" content="Cultivating and offering authentic wasabi grown right here in Appalachia.">
+  <link rel="icon" href="logo.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="index.html" aria-label="Appalachian Wasabi home">
+        <img src="logo.jpg" alt="Appalachian Wasabi logo">
+      </a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="#" data-inactive>About Us</a></li>
+          <li><a href="facts.html">Wasabi Facts/FAQ</a></li>
+          <li><a href="collaboration.html">Collaboration</a></li>
+          <li><a href="#" data-inactive>Contact Us</a></li>
+          <li><a href="#" data-inactive class="nav-buy">Buy Things</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="inner">
+        <div>
+          <h1>Cultivating and offering authentic wasabi grown right here in Appalachia.</h1>
+          <p>Real wasabi, grown in the cool, shaded, spring-fed mountains of Appalachia.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#" data-inactive>Buy Things</a>
+            <a class="btn btn-ghost" href="facts.html">Wasabi Facts</a>
+          </div>
+        </div>
+        <div class="logo-wrap">
+          <img src="logo.jpg" alt="Appalachian Wasabi: mountains, evergreens and a wasabi rhizome with leaves">
+        </div>
+      </div>
+
+      <svg class="ridge" viewBox="0 0 1440 130" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 130 L0 95 L120 60 L200 82 L340 20 L430 70 L520 48 L640 92 L780 34 L880 78 L990 44 L1110 88 L1230 56 L1340 82 L1440 50 L1440 130 Z"/>
+      </svg>
+    </section>
+
+    <section class="explore" aria-labelledby="explore-heading">
+      <div class="inner">
+        <h2 id="explore-heading">Explore the farm</h2>
+        <ul class="rows">
+          <li>
+            <a class="row" href="#" data-inactive>
+              <span class="title">About Us</span>
+              <span class="desc">The farm, the growers, and why we chose Appalachia.</span>
+            </a>
+          </li>
+          <li>
+            <a class="row" href="facts.html">
+              <span class="title">Wasabi Facts/FAQ</span>
+              <span class="desc">What real wasabi is, how it grows, and how to enjoy it.</span>
+            </a>
+          </li>
+          <li>
+            <a class="row" href="#" data-inactive>
+              <span class="title">Buy Things</span>
+              <span class="desc">Shop our wasabi, shipped to your door.</span>
+            </a>
+          </li>
+          <li>
+            <a class="row" href="collaboration.html">
+              <span class="title">Collaboration</span>
+              <span class="desc">Chefs, restaurants, and fellow growers: let's work together.</span>
+            </a>
+          </li>
+          <li>
+            <a class="row" href="#" data-inactive>
+              <span class="title">Contact Us</span>
+              <span class="desc">Questions, orders, or just to say hello.</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="grow" aria-labelledby="grow-heading">
+      <div class="inner">
+        <div>
+          <p class="eyebrow">From our grow site</p>
+          <h2 id="grow-heading">Cool shade, moving water, and patience.</h2>
+          <p>Wasabi is one of the most demanding crops there is, and it takes around two years to reach harvest size. These photos are from our own patch.</p>
+          <a class="btn btn-ghost" href="facts.html">Learn how it grows</a>
+        </div>
+        <div class="photos">
+          <figure>
+            <img src="grow-site-1.jpg" width="1050" height="1400" loading="lazy"
+                 alt="A dense carpet of broad, heart-shaped wasabi leaves growing on wet ground beside a mossy rock">
+            <figcaption>Our wasabi patch</figcaption>
+          </figure>
+          <figure>
+            <img src="grow-site-2.jpg" width="1050" height="1400" loading="lazy"
+                 alt="Close-up of large, textured wasabi leaves with a cluster of small white wasabi flowers">
+            <figcaption>Wasabi in bloom</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="inner">
+      <div>
+        <div class="name">Appalachian Wasabi</div>
+        <div>&copy; <span id="year">2026</span> Appalachian Wasabi. All rights reserved.</div>
+      </div>
+      <ul>
+        <li><a href="#" data-inactive>Shipping</a></li>
+        <li><a href="#" data-inactive>Refunds</a></li>
+        <li><a href="#" data-inactive>Privacy Policy</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Placeholder links: keep the page from jumping until real pages exist.
+    document.querySelectorAll('a[data-inactive]').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); });
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
