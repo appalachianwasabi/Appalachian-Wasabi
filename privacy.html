@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy | Appalachian Wasabi</title>
+  <meta name="description" content="What information Appalachian Wasabi collects, how it is used, and who it is shared with.">
+  <link rel="icon" href="favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="index.html" aria-label="Appalachian Wasabi home">
+        <img src="logo-header.png" alt="Appalachian Wasabi logo">
+      </a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="#" data-inactive>About Us</a></li>
+          <li><a href="facts.html">About Wasabi</a></li>
+          <li><a href="collaboration.html">Collaboration</a></li>
+          <li><a href="#" data-inactive>Contact Us</a></li>
+          <li><a href="shop.html" class="nav-buy">Shop</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-title">
+      <div class="inner">
+        <p class="eyebrow">Privacy</p>
+        <h1>Your privacy.</h1>
+        <p>We collect only what we need to take your order and answer your messages. This page explains what that is and who handles it.</p>
+      </div>
+    </section>
+
+    <section class="policy">
+      <div class="inner">
+        <h2>Who we are</h2>
+        <p>This website, appalachianwasabi.com, is run by Appalachian Wasabi, a wasabi grower in Appalachia. In this policy, &ldquo;we&rdquo; and &ldquo;us&rdquo; mean Appalachian Wasabi.</p>
+
+        <h2>What we collect</h2>
+        <ul>
+          <li><strong>Orders.</strong> When you buy from our shop, you check out on a page hosted by Square. Square collects your name, email, shipping and billing addresses, and payment details. We receive the order information we need to fill your order. We never see or store your full card number.</li>
+          <li><strong>Messages.</strong> If you use our Collaboration form, we receive the name, email address, organization (if you give one), type of inquiry and message you submit. The form is processed by a form service, FormSubmit, which delivers your message to our email inbox.</li>
+          <li><strong>Technical information.</strong> Like most websites, the services that deliver this site can see basic technical information such as your IP address, browser and the pages you request. Our site is hosted on GitHub Pages, and our fonts are loaded from Google Fonts, so those companies receive this information when your browser loads the page.</li>
+        </ul>
+        <p>We do not run advertising or analytics tools on this site, and we do not set tracking cookies ourselves. Services we link to, such as Square&rsquo;s checkout, may use their own cookies.</p>
+
+        <h2>How we use it</h2>
+        <ul>
+          <li>To process, pack, ship and support your order.</li>
+          <li>To reply to your messages and inquiries.</li>
+          <li>To keep records, handle taxes and follow the law.</li>
+        </ul>
+
+        <h2>Who we share it with</h2>
+        <p>We do not sell your personal information. We share it only with the services needed to run the store and the site:</p>
+        <ul>
+          <li><strong>Square</strong> processes payments. See <a href="https://squareup.com/us/en/legal/general/privacy" rel="noopener">Square&rsquo;s privacy notice</a>.</li>
+          <li><strong>Shipping carriers</strong>, such as USPS or UPS, receive your name and address to deliver your order.</li>
+          <li><strong>FormSubmit</strong> delivers Collaboration form messages to us.</li>
+          <li><strong>GitHub</strong> hosts the site. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub&rsquo;s privacy statement</a>.</li>
+          <li><strong>Google</strong> provides the fonts. See <a href="https://policies.google.com/privacy" rel="noopener">Google&rsquo;s privacy policy</a>.</li>
+        </ul>
+        <p>We may also disclose information if the law requires it.</p>
+
+        <h2>How long we keep it</h2>
+        <p>We keep order records as long as we need them for fulfillment, taxes and accounting. We keep messages for as long as it is useful to answer you and to remember who we have talked to.</p>
+
+        <h2>Your choices</h2>
+        <p>You may ask us what personal information we hold about you, ask us to correct it, or ask us to delete it, except where we need to keep it for legal or tax reasons. <a href="collaboration.html">Send us a message</a> and we will respond.</p>
+
+        <h2>Children</h2>
+        <p>This site is not directed to children under 13, and we do not knowingly collect their personal information.</p>
+
+        <h2>Security</h2>
+        <p>Payments are handled by Square. We take reasonable care with the information we receive, but no website or email system is completely secure.</p>
+
+        <h2>Changes to this policy</h2>
+        <p>If we change this policy, we will post the new version here and update the date below.</p>
+
+        <h2>Contact</h2>
+        <p>Questions about this policy? Use the form on our <a href="collaboration.html">Collaboration page</a>.</p>
+        <p class="policy-updated">Last updated October 7, 2026.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="inner">
+      <div>
+        <div class="name">Appalachian Wasabi</div>
+        <div>&copy; <span id="year">2026</span> Appalachian Wasabi. All rights reserved.</div>
+      </div>
+      <ul>
+        <li><a href="shipping.html">Shipping</a></li>
+        <li><a href="refunds.html">Refunds</a></li>
+        <li><a href="privacy.html" aria-current="page">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[data-inactive]').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); });
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

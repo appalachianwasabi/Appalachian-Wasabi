@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shop | Appalachian Wasabi</title>
+  <meta name="description" content="Shop authentic wasabi grown in Appalachia.">
+  <link rel="icon" href="favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="index.html" aria-label="Appalachian Wasabi home">
+        <img src="logo-header.png" alt="Appalachian Wasabi logo">
+      </a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="#" data-inactive>About Us</a></li>
+          <li><a href="facts.html">About Wasabi</a></li>
+          <li><a href="collaboration.html">Collaboration</a></li>
+          <li><a href="#" data-inactive>Contact Us</a></li>
+          <li><a href="shop.html" class="nav-buy" aria-current="page">Shop</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-title">
+      <div class="inner">
+        <p class="eyebrow">Shop</p>
+        <h1>Wasabi, grown in Appalachia.</h1>
+        <p>Checkout is handled securely by Square. We never see or store your card details.</p>
+      </div>
+    </section>
+
+    <section class="shop" aria-labelledby="shop-heading">
+      <div class="inner">
+        <h2 id="shop-heading" class="visually-hidden">Products</h2>
+
+        <div class="product-grid" id="product-grid"></div>
+
+        <div class="shop-empty" id="shop-empty" hidden>
+          <h2>The shop is opening soon.</h2>
+          <p>We&rsquo;re getting our first harvest ready. If you&rsquo;re a chef, restaurant or retailer, or you&rsquo;d like to hear when it&rsquo;s available, get in touch.</p>
+          <a class="btn btn-primary" href="collaboration.html">Get in touch</a>
+        </div>
+
+        <noscript>
+          <p>The shop needs JavaScript to list products. Please enable it, or <a href="collaboration.html">contact us</a> to order.</p>
+        </noscript>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="inner">
+      <div>
+        <div class="name">Appalachian Wasabi</div>
+        <div>&copy; <span id="year">2026</span> Appalachian Wasabi. All rights reserved.</div>
+      </div>
+      <ul>
+        <li><a href="shipping.html">Shipping</a></li>
+        <li><a href="refunds.html">Refunds</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="products.js"></script>
+  <script>
+    document.querySelectorAll('a[data-inactive]').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); });
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function () {
+      var items = Array.isArray(window.PRODUCTS) ? window.PRODUCTS : [];
+      var grid = document.getElementById('product-grid');
+      var empty = document.getElementById('shop-empty');
+
+      if (!items.length) { empty.hidden = false; return; }
+
+      items.forEach(function (p) {
+        var card = document.createElement('article');
+        card.className = 'product';
+
+        if (p.image) {
+          var img = document.createElement('img');
+          img.src = p.image;
+          img.alt = p.name || 'Product photo';
+          img.loading = 'lazy';
+          card.appendChild(img);
+        }
+
+        var body = document.createElement('div');
+        body.className = 'product-body';
+
+        var h = document.createElement('h3');
+        h.textContent = p.name || '';
+        body.appendChild(h);
+
+        if (p.description) {
+          var d = document.createElement('p');
+          d.textContent = p.description;
+          body.appendChild(d);
+        }
+
+        var foot = document.createElement('div');
+        foot.className = 'product-foot';
+
+        var price = document.createElement('span');
+        price.className = 'price';
+        price.textContent = p.price || '';
+        foot.appendChild(price);
+
+        var btn;
+        // Only allow real Square checkout links.
+        var okLink = typeof p.link === 'string' && /^https:\/\/(square\.link\/|checkout\.square\.site\/)/.test(p.link);
+        if (p.soldOut || !okLink) {
+          btn = document.createElement('span');
+          btn.className = 'btn btn-disabled';
+          btn.textContent = p.soldOut ? 'Sold out' : 'Unavailable';
+        } else {
+          btn = document.createElement('a');
+          btn.className = 'btn btn-primary';
+          btn.href = p.link;
+          btn.textContent = 'Buy now';
+          btn.rel = 'noopener';
+        }
+        foot.appendChild(btn);
+
+        body.appendChild(foot);
+        card.appendChild(body);
+        grid.appendChild(card);
+      });
+    })();
+  </script>
+</body>
+</html>

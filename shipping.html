@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shipping Policy | Appalachian Wasabi</title>
+  <meta name="description" content="How and when Appalachian Wasabi ships orders, what it costs, and how to care for fresh wasabi when it arrives.">
+  <link rel="icon" href="favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="index.html" aria-label="Appalachian Wasabi home">
+        <img src="logo-header.png" alt="Appalachian Wasabi logo">
+      </a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="#" data-inactive>About Us</a></li>
+          <li><a href="facts.html">About Wasabi</a></li>
+          <li><a href="collaboration.html">Collaboration</a></li>
+          <li><a href="#" data-inactive>Contact Us</a></li>
+          <li><a href="shop.html" class="nav-buy">Shop</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-title">
+      <div class="inner">
+        <p class="eyebrow">Shipping</p>
+        <h1>How we ship.</h1>
+        <p>Fresh wasabi is perishable, so we pack it carefully and ship it quickly. Here is what to expect.</p>
+      </div>
+    </section>
+
+    <section class="policy">
+      <div class="inner">
+        <h2>Where we ship</h2>
+        <p>We currently ship to addresses within the United States. If you are outside the U.S. and would like to order, <a href="collaboration.html">send us a message</a> and we will let you know whether we can help.</p>
+
+        <h2>When orders ship</h2>
+        <p>Most orders ship within 3 business days of purchase. To keep fresh products from sitting in a carrier&rsquo;s facility over a weekend, we ship Monday through Wednesday. An order placed late in the week will ship the following Monday.</p>
+        <p>You will receive an email with tracking information when your order ships.</p>
+
+        <h2>Shipping rates</h2>
+        <p>Shipping is a flat rate that is shown at checkout before you pay. Any free-shipping offer will also be shown at checkout. Your shipping charge covers the whole order, so please check the total on the checkout page before you pay.</p>
+
+        <h2>Carriers and delivery times</h2>
+        <p>We ship with USPS, UPS or a similar carrier, chosen to get your order to you as quickly as possible. Delivery times are estimates from the carrier and are not guaranteed. Weather and carrier delays can happen.</p>
+
+        <h2>When your order arrives</h2>
+        <ul>
+          <li>Fresh wasabi is perishable. Please open your package and refrigerate fresh products as soon as they arrive.</li>
+          <li>Please make sure someone can receive the package on the delivery day, especially in very hot or very cold weather.</li>
+          <li>Double-check your shipping address at checkout. We cannot change an address once an order has shipped, and we are not responsible for packages sent to an address entered incorrectly.</li>
+        </ul>
+
+        <h2>Damaged, delayed or lost packages</h2>
+        <p>If your order arrives damaged or spoiled, or does not arrive, please <a href="collaboration.html">contact us</a> as soon as possible. Our <a href="refunds.html">refund policy</a> explains what we will do.</p>
+
+        <h2>Sales tax</h2>
+        <p>Where the law requires us to collect sales tax, it is added at checkout.</p>
+        <p class="policy-updated">Last updated October 7, 2026.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="inner">
+      <div>
+        <div class="name">Appalachian Wasabi</div>
+        <div>&copy; <span id="year">2026</span> Appalachian Wasabi. All rights reserved.</div>
+      </div>
+      <ul>
+        <li><a href="shipping.html" aria-current="page">Shipping</a></li>
+        <li><a href="refunds.html">Refunds</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[data-inactive]').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); });
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Refund Policy | Appalachian Wasabi</title>
+  <meta name="description" content="Appalachian Wasabi's refund and replacement policy for fresh and perishable products.">
+  <link rel="icon" href="favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="index.html" aria-label="Appalachian Wasabi home">
+        <img src="logo-header.png" alt="Appalachian Wasabi logo">
+      </a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="#" data-inactive>About Us</a></li>
+          <li><a href="facts.html">About Wasabi</a></li>
+          <li><a href="collaboration.html">Collaboration</a></li>
+          <li><a href="#" data-inactive>Contact Us</a></li>
+          <li><a href="shop.html" class="nav-buy">Shop</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-title">
+      <div class="inner">
+        <p class="eyebrow">Refunds</p>
+        <h1>Refunds and replacements.</h1>
+        <p>We want every order to arrive fresh and as described. If something goes wrong, we will make it right.</p>
+      </div>
+    </section>
+
+    <section class="policy">
+      <div class="inner">
+        <h2>If there is a problem with your order</h2>
+        <p>If your order arrives damaged, spoiled or not as described, please contact us within 48 hours of delivery. Include your order details and a photo of the product and the packaging. We will replace the item or refund you, whichever you prefer.</p>
+
+        <h2>Fresh and perishable products</h2>
+        <p>For food-safety reasons, we cannot accept returns of fresh or perishable products, and we cannot offer refunds for a change of mind. If there is a problem with your order, the section above applies.</p>
+
+        <h2>Packages that do not arrive</h2>
+        <p>If your tracking shows no movement, or your package has not arrived 10 days after it shipped, please contact us. We will work with the carrier and either send a replacement or refund your order.</p>
+
+        <h2>Other products</h2>
+        <p>If we sell products that are not perishable, you may return them within 30 days of delivery if they are unused and in their original packaging. Please contact us first so we can give you return instructions. Unless the item was damaged or sent in error, return shipping is paid by you.</p>
+
+        <h2>Changing or canceling an order</h2>
+        <p>If you need to cancel or change an order, contact us as soon as possible. If it has not shipped yet, we will cancel it and refund you in full. Once an order has shipped, we cannot cancel it.</p>
+
+        <h2>How refunds are paid</h2>
+        <p>Refunds go back to the card or payment method you used at checkout. After we issue a refund, it can take about 5 to 10 business days to appear, depending on your bank or card company.</p>
+
+        <h2>How to contact us</h2>
+        <p>Use the form on our <a href="collaboration.html">Collaboration page</a> and mention your order. We will reply to the email address you give us.</p>
+        <p class="policy-updated">Last updated October 7, 2026.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="inner">
+      <div>
+        <div class="name">Appalachian Wasabi</div>
+        <div>&copy; <span id="year">2026</span> Appalachian Wasabi. All rights reserved.</div>
+      </div>
+      <ul>
+        <li><a href="shipping.html">Shipping</a></li>
+        <li><a href="refunds.html" aria-current="page">Refunds</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[data-inactive]').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); });
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

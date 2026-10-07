@@ -1,6 +1,6 @@
 :root {
-  --wasabi: #7fa936;        /* bright wasabi green: use on black */
-  --wasabi-deep: #3f5a1e;   /* deep green from the logo: use on white */
+  --wasabi: #859c46;        /* wasabi green sampled from the logo: use on black */
+  --wasabi-deep: #4a5f24;   /* deep green for text on white */
   --black: #000000;
   --ink: #111111;
   --white: #ffffff;
@@ -46,7 +46,7 @@ img { max-width: 100%; }
   gap: 1.5rem;
 }
 .brand { display: flex; align-items: center; text-decoration: none; }
-.brand img { height: 52px; width: auto; display: block; }
+.brand img { height: 58px; width: auto; display: block; }
 
 nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.75rem; }
 nav a {
@@ -103,7 +103,7 @@ nav a.nav-buy:hover { background: var(--wasabi-deep); }
 }
 .hero p { max-width: 30rem; margin: 0 0 2.25rem; color: var(--grey); font-size: 1.25rem; }
 .hero .logo-wrap { display: flex; justify-content: center; }
-.hero .logo-wrap img { width: 100%; max-width: 460px; height: auto; display: block; }
+.hero .logo-wrap img { width: 100%; max-width: 440px; height: auto; display: block; }
 
 .ridge { display: block; width: 100%; height: clamp(60px, 9vw, 130px); margin-bottom: -1px; }
 .ridge path { fill: var(--black); }
@@ -174,7 +174,17 @@ nav a.nav-buy:hover { background: var(--wasabi-deep); }
 .photos { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 .photos figure { margin: 0; }
 .photos figure:nth-child(2) { margin-top: 3.5rem; }
-.photos img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; background: var(--line); }
+.photo-link { display: block; cursor: zoom-in; }
+.photos img { width: 100%; height: auto; display: block; background: var(--line); }
+.photos figcaption span { display: block; text-transform: none; letter-spacing: 0; font-family: var(--body); font-size: 0.9rem; color: var(--grey); margin-top: 0.1rem; }
+
+/* Enlarged photo */
+.lightbox { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100%; height: 100%; margin: 0; }
+.lightbox::backdrop { background: rgba(0, 0, 0, 0.88); }
+.lightbox[open] { display: flex; align-items: center; justify-content: center; }
+.lightbox img { max-width: 94vw; max-height: 90vh; width: auto; height: auto; display: block; cursor: zoom-out; }
+.lightbox-close { position: fixed; top: 0.75rem; right: 0.75rem; width: 2.75rem; height: 2.75rem; border: 0; background: var(--white); color: var(--black); font-size: 2rem; line-height: 1; cursor: pointer; }
+.lightbox-close:hover { background: var(--wasabi); }
 .photos figcaption {
   font-family: var(--display);
   font-weight: 500;
@@ -306,7 +316,7 @@ nav a.nav-buy:hover { background: var(--wasabi-deep); }
   padding: 0.7rem 0.85rem;
 }
 .field textarea { min-height: 9rem; resize: vertical; }
-.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--wasabi-deep); box-shadow: 0 0 0 3px rgba(127, 169, 54, 0.35); }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--wasabi-deep); box-shadow: 0 0 0 3px rgba(133, 156, 70, 0.4); }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .form-note { color: var(--grey); font-size: 0.95rem; margin: 1rem 0 0; }
 .notice {
@@ -328,6 +338,7 @@ footer a:hover { color: var(--wasabi); }
 
 /* ---------- Small screens ---------- */
 @media (max-width: 860px) {
+  .site-header { position: static; }  /* menu scrolls away on phones so it doesn't cover the page */
   .site-header .inner { flex-direction: column; gap: 0.5rem; padding: 0.6rem 1rem; }
   nav ul { flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.25rem; }
   nav a { font-size: 1.05rem; }
@@ -339,9 +350,45 @@ footer a:hover { color: var(--wasabi); }
   .grow { padding: 4rem 1.25rem; }
   .grow .inner, .collab .inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .photos figure:nth-child(2) { margin-top: 2rem; }
+}
+
+@media (max-width: 600px) {
+  .photos { grid-template-columns: 1fr; gap: 2rem; }
+  .photos figure:nth-child(2) { margin-top: 0; }
+  .brand img { height: 50px; }
   .page-title { padding-top: 2.5rem; }
   .fact-list li { grid-template-columns: 3.2rem minmax(0, 1fr); gap: 0.75rem; }
   .fact-list li::before { font-size: 2.2rem; }
   .fact-list h3 { font-size: 1.6rem; }
   .form-card { padding: 1.25rem; }
 }
+
+/* ---------- Shop page ---------- */
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.shop { background: var(--white); padding: 1rem 1.5rem 6rem; }
+.shop .inner { max-width: 1180px; margin: 0 auto; }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2rem 1.5rem; }
+.product { display: flex; flex-direction: column; border-top: 2px solid var(--black); }
+.product img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; background: var(--line); margin-top: 1rem; }
+.product-body { display: flex; flex-direction: column; flex: 1; padding-top: 1rem; }
+.product h3 { font-family: var(--display); font-weight: 700; font-size: 1.9rem; line-height: 1.05; margin: 0 0 0.4rem; }
+.product p { margin: 0 0 1rem; color: var(--grey); }
+.product-foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.price { font-family: var(--display); font-weight: 700; font-size: 1.7rem; }
+.product-foot .btn { padding: 0.55rem 1.4rem; }
+.btn-disabled { background: var(--line); color: var(--grey); border-color: var(--line); cursor: not-allowed; }
+.shop-empty { border-top: 2px solid var(--black); padding: 2.5rem 0 0; max-width: 40rem; }
+.shop-empty h2 { font-family: var(--display); font-weight: 700; font-size: clamp(2rem, 4vw, 3rem); line-height: 1; margin: 0 0 1rem; }
+.shop-empty p { color: var(--grey); margin: 0 0 1.5rem; }
+
+
+/* ---------- Policy pages ---------- */
+.policy { background: var(--white); padding: 1rem 1.5rem 6rem; }
+.policy .inner { max-width: 1180px; margin: 0 auto; }
+.policy .inner > * { max-width: 44rem; }
+.policy h2 { font-family: var(--display); font-weight: 700; font-size: 2rem; line-height: 1.05; margin: 2.5rem 0 0.75rem; border-top: 2px solid var(--black); padding-top: 1rem; }
+.policy h2:first-child { margin-top: 0; }
+.policy p, .policy li { margin: 0 0 0.9rem; }
+.policy ul { padding-left: 1.25rem; margin: 0 0 1rem; }
+.policy a { color: var(--wasabi-deep); }
+.policy-updated { color: var(--grey); font-size: 1rem; margin-top: 2.5rem; }

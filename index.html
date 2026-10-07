@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Appalachian Wasabi</title>
   <meta name="description" content="Cultivating and offering authentic wasabi grown right here in Appalachia.">
-  <link rel="icon" href="logo.jpg">
+  <link rel="icon" href="favicon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,15 +18,15 @@
   <header class="site-header">
     <div class="inner">
       <a class="brand" href="index.html" aria-label="Appalachian Wasabi home">
-        <img src="logo.jpg" alt="Appalachian Wasabi logo">
+        <img src="logo-header.png" alt="Appalachian Wasabi logo">
       </a>
       <nav aria-label="Main">
         <ul>
           <li><a href="#" data-inactive>About Us</a></li>
-          <li><a href="facts.html">Wasabi Facts/FAQ</a></li>
+          <li><a href="facts.html">About Wasabi</a></li>
           <li><a href="collaboration.html">Collaboration</a></li>
           <li><a href="#" data-inactive>Contact Us</a></li>
-          <li><a href="#" data-inactive class="nav-buy">Buy Things</a></li>
+          <li><a href="shop.html" class="nav-buy">Shop</a></li>
         </ul>
       </nav>
     </div>
@@ -40,12 +40,12 @@
           <h1>Cultivating and offering authentic wasabi grown right here in Appalachia.</h1>
           <p>Real wasabi, grown in the cool, shaded, spring-fed mountains of Appalachia.</p>
           <div class="btn-row">
-            <a class="btn btn-primary" href="#" data-inactive>Buy Things</a>
-            <a class="btn btn-ghost" href="facts.html">Wasabi Facts</a>
+            <a class="btn btn-primary" href="shop.html">Shop</a>
+            <a class="btn btn-ghost" href="facts.html">About Wasabi</a>
           </div>
         </div>
         <div class="logo-wrap">
-          <img src="logo.jpg" alt="Appalachian Wasabi: mountains, evergreens and a wasabi rhizome with leaves">
+          <img src="logo.png" alt="Appalachian Wasabi logo: mountains, evergreens and a wasabi rhizome with leaves">
         </div>
       </div>
 
@@ -66,13 +66,13 @@
           </li>
           <li>
             <a class="row" href="facts.html">
-              <span class="title">Wasabi Facts/FAQ</span>
+              <span class="title">About Wasabi</span>
               <span class="desc">What real wasabi is, how it grows, and how to enjoy it.</span>
             </a>
           </li>
           <li>
-            <a class="row" href="#" data-inactive>
-              <span class="title">Buy Things</span>
+            <a class="row" href="shop.html">
+              <span class="title">Shop</span>
               <span class="desc">Shop our wasabi, shipped to your door.</span>
             </a>
           </li>
@@ -102,20 +102,29 @@
         </div>
         <div class="photos">
           <figure>
-            <img src="grow-site-1.jpg" width="1050" height="1400" loading="lazy"
-                 alt="A dense carpet of broad, heart-shaped wasabi leaves growing on wet ground beside a mossy rock">
-            <figcaption>Our wasabi patch</figcaption>
+            <a class="photo-link" href="grow-site-1-large.jpg" data-lightbox>
+              <img src="grow-site-1.jpg" width="1050" height="1400" loading="lazy"
+                   alt="A dense carpet of broad, heart-shaped wasabi leaves growing on wet ground beside a mossy rock">
+            </a>
+            <figcaption>Our wasabi patch <span>Tap to enlarge</span></figcaption>
           </figure>
           <figure>
-            <img src="grow-site-2.jpg" width="1050" height="1400" loading="lazy"
-                 alt="Close-up of large, textured wasabi leaves with a cluster of small white wasabi flowers">
-            <figcaption>Wasabi in bloom</figcaption>
+            <a class="photo-link" href="grow-site-2-large.jpg" data-lightbox>
+              <img src="grow-site-2.jpg" width="1050" height="1400" loading="lazy"
+                   alt="Close-up of large, textured wasabi leaves with a cluster of small white wasabi flowers">
+            </a>
+            <figcaption>Wasabi in bloom <span>Tap to enlarge</span></figcaption>
           </figure>
         </div>
       </div>
     </section>
 
   </main>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Enlarged photo">
+    <button type="button" class="lightbox-close" aria-label="Close photo">&times;</button>
+    <img id="lightbox-img" alt="">
+  </dialog>
 
   <footer>
     <div class="inner">
@@ -124,9 +133,9 @@
         <div>&copy; <span id="year">2026</span> Appalachian Wasabi. All rights reserved.</div>
       </div>
       <ul>
-        <li><a href="#" data-inactive>Shipping</a></li>
-        <li><a href="#" data-inactive>Refunds</a></li>
-        <li><a href="#" data-inactive>Privacy Policy</a></li>
+        <li><a href="shipping.html">Shipping</a></li>
+        <li><a href="refunds.html">Refunds</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
       </ul>
     </div>
   </footer>
@@ -137,6 +146,24 @@
       a.addEventListener('click', function (e) { e.preventDefault(); });
     });
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Tap a grow-site photo to see it enlarged. Without JavaScript the link opens the photo itself.
+    (function () {
+      var box = document.getElementById('lightbox');
+      if (!box || typeof box.showModal !== 'function') return;
+      var big = document.getElementById('lightbox-img');
+      document.querySelectorAll('a[data-lightbox]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          var thumb = a.querySelector('img');
+          big.src = a.getAttribute('href');
+          big.alt = thumb ? thumb.alt : '';
+          box.showModal();
+        });
+      });
+      box.addEventListener('click', function () { box.close(); });   // tap anywhere to close
+      box.addEventListener('close', function () { big.removeAttribute('src'); });
+    })();
   </script>
 </body>
 </html>
