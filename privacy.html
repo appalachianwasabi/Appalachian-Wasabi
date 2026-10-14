@@ -11,19 +11,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body>
+
+  <div class="ship-bar" role="note">
+    <span data-ship-next>Fresh rhizomes and plant starts ship Mondays in spring and fall. Order by Friday, 6&nbsp;p.m. Eastern.</span>
+    <a href="shipping.html#schedule">Shipping schedule</a>
+  </div>
 
   <header class="site-header">
     <div class="inner">
       <a class="brand" href="index.html" aria-label="Appalachian Wasabi home">
         <img src="logo-header.png" alt="Appalachian Wasabi logo">
       </a>
-      <nav aria-label="Main">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="bars" aria-hidden="true"></span><span class="menu-label">Menu</span>
+      </button>
+      <nav aria-label="Main" id="site-nav">
         <ul>
           <li><a href="#" data-inactive>About Us</a></li>
           <li><a href="facts.html">About Wasabi</a></li>
+          <li><a href="grow.html">Growing Guide</a></li>
+          <li><a href="kitchen.html">Kitchen Guide</a></li>
           <li><a href="collaboration.html">Collaboration</a></li>
           <li><a href="#" data-inactive>Contact Us</a></li>
           <li><a href="shop.html" class="nav-buy">Shop</a></li>
@@ -66,7 +77,7 @@
         <p>We do not sell your personal information. We share it only with the services needed to run the store and the site:</p>
         <ul>
           <li><strong>Square</strong> processes payments. See <a href="https://squareup.com/us/en/legal/general/privacy" rel="noopener">Square&rsquo;s privacy notice</a>.</li>
-          <li><strong>Shipping carriers</strong>, such as USPS or UPS, receive your name and address to deliver your order.</li>
+          <li><strong>USPS</strong>, our shipping carrier, receives your name and address to deliver your order.</li>
           <li><strong>FormSubmit</strong> delivers Collaboration form messages to us.</li>
           <li><strong>GitHub</strong> hosts the site. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub&rsquo;s privacy statement</a>.</li>
           <li><strong>Google</strong> provides the fonts. See <a href="https://policies.google.com/privacy" rel="noopener">Google&rsquo;s privacy policy</a>.</li>
@@ -90,7 +101,7 @@
 
         <h2>Contact</h2>
         <p>Questions about this policy? Use the form on our <a href="collaboration.html">Collaboration page</a>.</p>
-        <p class="policy-updated">Last updated October 7, 2026.</p>
+        <p class="policy-updated">Last updated October 14, 2026.</p>
       </div>
     </section>
 
@@ -104,6 +115,7 @@
       </div>
       <ul>
         <li><a href="shipping.html">Shipping</a></li>
+        <li><a href="faq.html">FAQ</a></li>
         <li><a href="refunds.html">Refunds</a></li>
         <li><a href="privacy.html" aria-current="page">Privacy Policy</a></li>
       </ul>
@@ -116,5 +128,7 @@
     });
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script src="ship.js"></script>
+  <script src="site.js"></script>
 </body>
 </html>

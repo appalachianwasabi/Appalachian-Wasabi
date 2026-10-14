@@ -11,19 +11,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body>
+
+  <div class="ship-bar" role="note">
+    <span data-ship-next>Fresh rhizomes and plant starts ship Mondays in spring and fall. Order by Friday, 6&nbsp;p.m. Eastern.</span>
+    <a href="shipping.html#schedule">Shipping schedule</a>
+  </div>
 
   <header class="site-header">
     <div class="inner">
       <a class="brand" href="index.html" aria-label="Appalachian Wasabi home">
         <img src="logo-header.png" alt="Appalachian Wasabi logo">
       </a>
-      <nav aria-label="Main">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="bars" aria-hidden="true"></span><span class="menu-label">Menu</span>
+      </button>
+      <nav aria-label="Main" id="site-nav">
         <ul>
           <li><a href="#" data-inactive>About Us</a></li>
           <li><a href="facts.html">About Wasabi</a></li>
+          <li><a href="grow.html">Growing Guide</a></li>
+          <li><a href="kitchen.html">Kitchen Guide</a></li>
           <li><a href="collaboration.html">Collaboration</a></li>
           <li><a href="#" data-inactive>Contact Us</a></li>
           <li><a href="shop.html" class="nav-buy" aria-current="page">Shop</a></li>
@@ -39,6 +50,25 @@
         <p class="eyebrow">Shop</p>
         <h1>Wasabi, grown in Appalachia.</h1>
         <p>Checkout is handled securely by Square. We never see or store your card details.</p>
+      </div>
+    </section>
+
+
+    <section class="shop-info" aria-labelledby="shop-ship-heading">
+      <div class="inner">
+        <h2 id="shop-ship-heading" class="visually-hidden">Shipping and availability</h2>
+        <div class="ship-panel" aria-live="polite">
+          <div><span class="label">Next fresh shipment</span><span class="value" data-ship-date>Monday</span><span class="sub">Tuesday when Monday is a federal holiday</span></div>
+          <div><span class="label">Order by</span><span class="value" data-ship-orderby>Friday, 6 p.m. ET</span><span class="sub">Later orders ship the following week</span></div>
+          <div><span class="label">Fresh season</span><span class="value" data-ship-season>Spring &amp; fall</span><span class="sub">Fresh items ship March&ndash;May and September&ndash;November</span></div>
+        </div>
+        <div class="season-strip">
+          <p class="row-label">Fresh rhizomes and plant starts</p>
+          <ul class="months" aria-label="Months when fresh rhizomes and plant starts ship"><li class="" title="January">Jan<span class="visually-hidden">: does not ship</span></li><li class="" title="February">Feb<span class="visually-hidden">: does not ship</span></li><li class="on" title="March">Mar<span class="visually-hidden">: ships</span></li><li class="on" title="April">Apr<span class="visually-hidden">: ships</span></li><li class="on" title="May">May<span class="visually-hidden">: ships</span></li><li class="" title="June">Jun<span class="visually-hidden">: does not ship</span></li><li class="" title="July">Jul<span class="visually-hidden">: does not ship</span></li><li class="" title="August">Aug<span class="visually-hidden">: does not ship</span></li><li class="on" title="September">Sep<span class="visually-hidden">: ships</span></li><li class="on" title="October">Oct<span class="visually-hidden">: ships</span></li><li class="on" title="November">Nov<span class="visually-hidden">: ships</span></li><li class="" title="December">Dec<span class="visually-hidden">: does not ship</span></li></ul>
+          <p class="key">Green: fresh items ship that month. Outlined: this month. Orders without fresh items ship year-round.</p>
+        </div>
+        <p class="shop-links">Everything ships by USPS Priority Mail; fresh items travel with cold packs. Orders without fresh items ship year-round, within 2 to 3 business days.
+          <a href="shipping.html">Shipping details</a> &middot; <a href="grow.html">Growing Guide</a> &middot; <a href="kitchen.html">Kitchen Guide</a> &middot; <a href="faq.html">FAQ</a></p>
       </div>
     </section>
 
@@ -70,12 +100,15 @@
       </div>
       <ul>
         <li><a href="shipping.html">Shipping</a></li>
+        <li><a href="faq.html">FAQ</a></li>
         <li><a href="refunds.html">Refunds</a></li>
         <li><a href="privacy.html">Privacy Policy</a></li>
       </ul>
     </div>
   </footer>
 
+  <script src="ship.js"></script>
+  <script src="site.js"></script>
   <script src="products.js"></script>
   <script>
     document.querySelectorAll('a[data-inactive]').forEach(function (a) {
@@ -87,8 +120,13 @@
       var items = Array.isArray(window.PRODUCTS) ? window.PRODUCTS : [];
       var grid = document.getElementById('product-grid');
       var empty = document.getElementById('shop-empty');
+      var ship = window.AWShip;
 
       if (!items.length) { empty.hidden = false; return; }
+
+      // Shipping facts for fresh items, worked out once.
+      var next = ship ? ship.upcoming(1)[0] : null;
+      var freshOpen = ship ? ship.freshOpen() : true;
 
       items.forEach(function (p) {
         var card = document.createElement('article');
@@ -105,6 +143,24 @@
         var body = document.createElement('div');
         body.className = 'product-body';
 
+        // Shipping tag
+        var tag = document.createElement('span');
+        var when = null;
+        if (p.fresh) {
+          if (freshOpen) {
+            tag.className = 'ship-tag fresh';
+            tag.textContent = 'Fresh · ships ' + (next ? ship.fmt(next.ship, { weekday: 'short', month: 'short', day: 'numeric' }) : 'Monday');
+            if (next) when = 'Order by ' + ship.fmt(next.orderBy, { weekday: 'long', month: 'short', day: 'numeric' }) + ', 6 p.m. Eastern. Packed with cold packs.';
+          } else {
+            tag.className = 'ship-tag off';
+            tag.textContent = 'Out of season · back ' + (next ? ship.fmt(next.ship, { month: 'long' }) : 'soon');
+          }
+        } else {
+          tag.className = 'ship-tag';
+          tag.textContent = 'Ships in 2–3 business days';
+        }
+        body.appendChild(tag);
+
         var h = document.createElement('h3');
         h.textContent = p.name || '';
         body.appendChild(h);
@@ -113,6 +169,12 @@
           var d = document.createElement('p');
           d.textContent = p.description;
           body.appendChild(d);
+        }
+        if (when) {
+          var w = document.createElement('p');
+          w.className = 'ship-when';
+          w.textContent = when;
+          body.appendChild(w);
         }
 
         var foot = document.createElement('div');
@@ -126,10 +188,11 @@
         var btn;
         // Only allow real Square checkout links.
         var okLink = typeof p.link === 'string' && /^https:\/\/(square\.link\/|checkout\.square\.site\/)/.test(p.link);
-        if (p.soldOut || !okLink) {
+        var outOfSeason = p.fresh && !freshOpen;
+        if (p.soldOut || outOfSeason || !okLink) {
           btn = document.createElement('span');
           btn.className = 'btn btn-disabled';
-          btn.textContent = p.soldOut ? 'Sold out' : 'Unavailable';
+          btn.textContent = p.soldOut ? 'Sold out' : outOfSeason ? 'Out of season' : 'Unavailable';
         } else {
           btn = document.createElement('a');
           btn.className = 'btn btn-primary';

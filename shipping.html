@@ -4,26 +4,37 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shipping Policy | Appalachian Wasabi</title>
-  <meta name="description" content="How and when Appalachian Wasabi ships orders, what it costs, and how to care for fresh wasabi when it arrives.">
+  <meta name="description" content="When and how Appalachian Wasabi ships orders, seasonal availability of plant starts, and how to care for fresh rhizomes and plant starts when they arrive.">
   <link rel="icon" href="favicon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body>
+
+  <div class="ship-bar" role="note">
+    <span data-ship-next>Fresh rhizomes and plant starts ship Mondays in spring and fall. Order by Friday, 6&nbsp;p.m. Eastern.</span>
+    <a href="shipping.html#schedule">Shipping schedule</a>
+  </div>
 
   <header class="site-header">
     <div class="inner">
       <a class="brand" href="index.html" aria-label="Appalachian Wasabi home">
         <img src="logo-header.png" alt="Appalachian Wasabi logo">
       </a>
-      <nav aria-label="Main">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="bars" aria-hidden="true"></span><span class="menu-label">Menu</span>
+      </button>
+      <nav aria-label="Main" id="site-nav">
         <ul>
           <li><a href="#" data-inactive>About Us</a></li>
           <li><a href="facts.html">About Wasabi</a></li>
+          <li><a href="grow.html">Growing Guide</a></li>
+          <li><a href="kitchen.html">Kitchen Guide</a></li>
           <li><a href="collaboration.html">Collaboration</a></li>
           <li><a href="#" data-inactive>Contact Us</a></li>
           <li><a href="shop.html" class="nav-buy">Shop</a></li>
@@ -38,38 +49,84 @@
       <div class="inner">
         <p class="eyebrow">Shipping</p>
         <h1>How we ship.</h1>
-        <p>Fresh wasabi is perishable, so we pack it carefully and ship it quickly. Here is what to expect.</p>
+        <p>Fresh rhizomes and plant starts are living, perishable products, so we ship them on a set weekly schedule, packed with cold packs. Here is what to expect.</p>
       </div>
     </section>
 
     <section class="policy">
       <div class="inner">
+
+        <div class="policy-summary" aria-labelledby="glance-heading">
+          <h2 id="glance-heading">At a glance</h2>
+          <ul>
+            <li><strong>Fresh rhizomes and plant starts</strong> ship on <strong>Monday</strong> (Tuesday if Monday is a federal holiday). Order by <strong>Friday, 6:00 p.m. Eastern</strong> to ship the following Monday.</li>
+            <li><strong>Everything else</strong> ships within <strong>2 to 3 business days</strong>.</li>
+            <li><strong>Fresh rhizomes and plant starts</strong> are seasonal: they ship in spring (March&ndash;May) and fall (September&ndash;November) only.</li>
+            <li>Every order ships by <strong>USPS Priority Mail</strong>. Fresh items travel with insulated cold packs.</li>
+            <li>Refrigerate fresh items as soon as they arrive.</li>
+          </ul>
+        </div>
+
         <h2>Where we ship</h2>
         <p>We currently ship to addresses within the United States. If you are outside the U.S. and would like to order, <a href="collaboration.html">send us a message</a> and we will let you know whether we can help.</p>
 
-        <h2>When orders ship</h2>
-        <p>Most orders ship within 3 business days of purchase. To keep fresh products from sitting in a carrier&rsquo;s facility over a weekend, we ship Monday through Wednesday. An order placed late in the week will ship the following Monday.</p>
+        <h2 id="schedule">When orders ship</h2>
+        <p><strong>Orders with fresh rhizomes or plant starts</strong> ship once a week, on Monday, during our spring and fall seasons (see <a href="#seasons">seasonal availability</a>). If Monday is a federal holiday, they ship the next day, Tuesday. We ship at the start of the week so your wasabi is never stuck in a carrier&rsquo;s facility over a weekend.</p>
+        <p>To ship the following Monday, we must receive your order by <strong>Friday at 6:00 p.m. Eastern Time</strong>. An order placed after that cutoff will ship on the Monday of the following week. For example, an order placed Saturday morning ships the Monday after next, not the Monday right after it.</p>
+        <p><strong>Orders without fresh rhizomes or plant starts</strong> ship within 2 to 3 business days of purchase.</p>
+        <p><strong>If your order has both</strong>, we ship it together on the fresh-item schedule above, so that everything arrives in one package. If you would rather have the other items sooner, place a separate order for them.</p>
+        <p><strong>Holiday breaks.</strong> We pause fresh shipments during the weeks of Thanksgiving, Christmas and New Year&rsquo;s Day. Fresh orders received during the Thanksgiving break ship on the first Monday after it. Orders without fresh items may take a little longer during these weeks.</p>
         <p>You will receive an email with tracking information when your order ships.</p>
+        <div class="ship-panel" aria-live="polite">
+          <div><span class="label">Next fresh shipment</span><span class="value" data-ship-date>Monday</span><span class="sub">Tuesday when Monday is a federal holiday</span></div>
+          <div><span class="label">Order by</span><span class="value" data-ship-orderby>Friday, 6 p.m. ET</span><span class="sub">Later orders ship the following week</span></div>
+          <div><span class="label">Fresh season</span><span class="value" data-ship-season>Spring &amp; fall</span><span class="sub">Fresh items ship March&ndash;May and September&ndash;November</span></div>
+        </div>
+        <h3 class="visually-hidden">Upcoming fresh shipments</h3>
+        <table class="ship-table">
+          <caption class="visually-hidden">Upcoming fresh shipments</caption>
+          <thead><tr><th scope="col">Order by (Eastern)</th><th scope="col">Ships</th><th scope="col">Notes</th></tr></thead>
+          <tbody data-ship-table><tr><td colspan="3">In season, fresh orders received by Friday at 6 p.m. Eastern ship the following Monday.</td></tr></tbody>
+        </table>
+
+        <h2 id="seasons">Seasonal availability</h2>
+        <p><strong>Fresh rhizomes and plant starts</strong> ship only in spring (March through May) and fall (September through November). Mild weather in those months spares them summer heat and winter cold in transit, and gives new plants the best chance to establish. What is available within each season depends on our harvest; the <a href="shop.html">shop</a> shows what is in stock.</p>
+        <p>The last fresh shipment of each season goes out in late May or late November; the schedule above shows exact dates. Outside the seasons, fresh items show as out of season in the shop, and ordering reopens the week before each season&rsquo;s first shipment. <strong>Orders without fresh items ship year-round.</strong></p>
+        <div class="season-strip">
+          <p class="row-label">Fresh rhizomes and plant starts</p>
+          <ul class="months" aria-label="Months when fresh rhizomes and plant starts ship"><li class="" title="January">Jan<span class="visually-hidden">: does not ship</span></li><li class="" title="February">Feb<span class="visually-hidden">: does not ship</span></li><li class="on" title="March">Mar<span class="visually-hidden">: ships</span></li><li class="on" title="April">Apr<span class="visually-hidden">: ships</span></li><li class="on" title="May">May<span class="visually-hidden">: ships</span></li><li class="" title="June">Jun<span class="visually-hidden">: does not ship</span></li><li class="" title="July">Jul<span class="visually-hidden">: does not ship</span></li><li class="" title="August">Aug<span class="visually-hidden">: does not ship</span></li><li class="on" title="September">Sep<span class="visually-hidden">: ships</span></li><li class="on" title="October">Oct<span class="visually-hidden">: ships</span></li><li class="on" title="November">Nov<span class="visually-hidden">: ships</span></li><li class="" title="December">Dec<span class="visually-hidden">: does not ship</span></li></ul>
+          <p class="key">Green: fresh items ship that month. Outlined: this month. Orders without fresh items ship year-round.</p>
+        </div>
+        <p><strong>Weather holds.</strong> If extreme heat or a hard freeze is forecast along your package&rsquo;s route, we will hold your entire order and ship it on the next available ship date. We will email you to let you know.</p>
 
         <h2>Shipping rates</h2>
         <p>Shipping is a flat rate that is shown at checkout before you pay. Any free-shipping offer will also be shown at checkout. Your shipping charge covers the whole order, so please check the total on the checkout page before you pay.</p>
 
-        <h2>Carriers and delivery times</h2>
-        <p>We ship with USPS, UPS or a similar carrier, chosen to get your order to you as quickly as possible. Delivery times are estimates from the carrier and are not guaranteed. Weather and carrier delays can happen.</p>
+        <h2>Carrier and packaging</h2>
+        <p>All orders ship by USPS Priority Mail. Orders that include fresh rhizomes or plant starts are packed with insulated cold packs to keep them cool in transit.</p>
+        <p>Priority Mail delivery times are estimates from USPS and are not guaranteed. Weather and carrier delays can happen. Because we ship fresh items early in the week, they typically arrive within a few days of shipping.</p>
 
         <h2>When your order arrives</h2>
         <ul>
-          <li>Fresh wasabi is perishable. Please open your package and refrigerate fresh products as soon as they arrive.</li>
+          <li><strong>Open your package and refrigerate fresh rhizomes and plant starts immediately.</strong> The cold packs will have done their job in transit, but they will not keep your wasabi cool for long.</li>
           <li>Please make sure someone can receive the package on the delivery day, especially in very hot or very cold weather.</li>
           <li>Double-check your shipping address at checkout. We cannot change an address once an order has shipped, and we are not responsible for packages sent to an address entered incorrectly.</li>
         </ul>
 
+        <h2>Caring for fresh rhizomes and plant starts</h2>
+        <ul>
+          <li><strong>Plant starts:</strong> transplant within one week of arrival. Our <a href="grow.html">Growing Guide</a> shows how.</li>
+          <li><strong>Fresh rhizomes:</strong> they stay good for about 2 to 3 weeks in the refrigerator. Our <a href="kitchen.html">Kitchen Guide</a> covers grating and serving.</li>
+          <li><strong>How to store them:</strong> keep fresh items in a closed container that is <em>not</em> airtight, such as a container with its lid resting loosely or a bag with the top left slightly open. Place a slightly damp paper towel in the container near the wasabi, but not touching it.</li>
+          <li><strong>Keep the towel damp:</strong> remoisten the paper towel every few days or so. It should be slightly damp, never dripping wet, so that the wasabi does not sit in water.</li>
+        </ul>
+
         <h2>Damaged, delayed or lost packages</h2>
-        <p>If your order arrives damaged or spoiled, or does not arrive, please <a href="collaboration.html">contact us</a> as soon as possible. Our <a href="refunds.html">refund policy</a> explains what we will do.</p>
+        <p>If your order arrives damaged or spoiled, or does not arrive, please <a href="collaboration.html">contact us</a> as soon as possible. Our <a href="refunds.html">refund policy</a> explains what we will do, including the 48-hour window for reporting a problem after delivery.</p>
 
         <h2>Sales tax</h2>
         <p>Where the law requires us to collect sales tax, it is added at checkout.</p>
-        <p class="policy-updated">Last updated October 7, 2026.</p>
+        <p class="policy-updated">Last updated October 14, 2026. Questions? See our <a href="faq.html">FAQ</a>.</p>
       </div>
     </section>
 
@@ -83,12 +140,15 @@
       </div>
       <ul>
         <li><a href="shipping.html" aria-current="page">Shipping</a></li>
+        <li><a href="faq.html">FAQ</a></li>
         <li><a href="refunds.html">Refunds</a></li>
         <li><a href="privacy.html">Privacy Policy</a></li>
       </ul>
     </div>
   </footer>
 
+  <script src="ship.js"></script>
+  <script src="site.js"></script>
   <script>
     document.querySelectorAll('a[data-inactive]').forEach(function (a) {
       a.addEventListener('click', function (e) { e.preventDefault(); });

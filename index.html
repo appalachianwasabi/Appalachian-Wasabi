@@ -11,19 +11,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body>
+
+  <div class="ship-bar" role="note">
+    <span data-ship-next>Fresh rhizomes and plant starts ship Mondays in spring and fall. Order by Friday, 6&nbsp;p.m. Eastern.</span>
+    <a href="shipping.html#schedule">Shipping schedule</a>
+  </div>
 
   <header class="site-header">
     <div class="inner">
       <a class="brand" href="index.html" aria-label="Appalachian Wasabi home">
         <img src="logo-header.png" alt="Appalachian Wasabi logo">
       </a>
-      <nav aria-label="Main">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="bars" aria-hidden="true"></span><span class="menu-label">Menu</span>
+      </button>
+      <nav aria-label="Main" id="site-nav">
         <ul>
           <li><a href="#" data-inactive>About Us</a></li>
           <li><a href="facts.html">About Wasabi</a></li>
+          <li><a href="grow.html">Growing Guide</a></li>
+          <li><a href="kitchen.html">Kitchen Guide</a></li>
           <li><a href="collaboration.html">Collaboration</a></li>
           <li><a href="#" data-inactive>Contact Us</a></li>
           <li><a href="shop.html" class="nav-buy">Shop</a></li>
@@ -67,13 +78,25 @@
           <li>
             <a class="row" href="facts.html">
               <span class="title">About Wasabi</span>
-              <span class="desc">What real wasabi is, how it grows, and how to enjoy it.</span>
+              <span class="desc">What real wasabi is, how it grows, and why it&rsquo;s so rare.</span>
             </a>
           </li>
           <li>
             <a class="row" href="shop.html">
               <span class="title">Shop</span>
-              <span class="desc">Shop our wasabi, shipped to your door.</span>
+              <span class="desc">Fresh rhizomes and plant starts, shipped to your door.</span>
+            </a>
+          </li>
+          <li>
+            <a class="row" href="grow.html">
+              <span class="title">Growing Guide</span>
+              <span class="desc">Plant, care for and harvest your own wasabi.</span>
+            </a>
+          </li>
+          <li>
+            <a class="row" href="kitchen.html">
+              <span class="title">Kitchen Guide</span>
+              <span class="desc">Store, grate and serve a fresh rhizome, leaves and all.</span>
             </a>
           </li>
           <li>
@@ -92,13 +115,84 @@
       </div>
     </section>
 
+
+    <section class="how" aria-labelledby="how-heading">
+      <div class="inner">
+        <p class="eyebrow">How fresh orders work</p>
+        <h2 id="how-heading">Harvested, packed cold, shipped Monday.</h2>
+        <ol>
+          <li><h3>Order by Friday</h3><p>Fresh orders received by 6 p.m. Eastern on Friday make the next shipment.</p></li>
+          <li><h3>Ships Monday</h3><p>Packed with insulated cold packs and sent by USPS Priority Mail early in the week.</p></li>
+          <li><h3>Refrigerate</h3><p>Unpack on arrival. Rhizomes keep 2 to 3 weeks; plant starts go in the ground within a week.</p></li>
+          <li><h3>Grate or grow</h3><p>Grate just before serving, or plant your starts in cool shade.</p></li>
+        </ol>
+        <p class="note"><span data-ship-next>Fresh rhizomes and plant starts ship Mondays.</span> <a href="shipping.html">Full shipping details</a></p>
+      </div>
+    </section>
+
+    <section class="paths" aria-label="Guides">
+      <div class="inner">
+        <a class="path-card" href="grow.html">
+          <div class="art"><img src="grow-site-2.jpg" width="1050" height="1400" loading="lazy" alt="Wasabi leaves with small white flowers"></div>
+          <div class="body">
+            <p class="eyebrow">Growing Guide</p>
+            <h3>Grow your own.</h3>
+            <p>Shade, cool water and patience: how to plant and care for wasabi starts, from arrival to harvest.</p>
+            <span class="go">Read the guide &rarr;</span>
+          </div>
+        </a>
+        <a class="path-card" href="kitchen.html">
+          <div class="art" aria-hidden="true"><svg viewBox="0 0 640 320" focusable="false">
+  <title>Top view of a fine grater with the cut end of a wasabi rhizome pressed on it, moving in slow circles. The paste collects in the center of the grater.</title>
+  <defs>
+    <pattern id="teeth" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="1.8" fill="#b9b9b9"/></pattern>
+    <marker id="ah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#111"/></marker>
+  </defs>
+  <g transform="translate(20 0)">
+  <!-- paddle + handle -->
+  <rect x="424" y="128" width="150" height="54" rx="22" fill="#fff" stroke="#111" stroke-width="3"/>
+  <rect x="150" y="40" width="290" height="230" rx="40" fill="#fff" stroke="#111" stroke-width="3"/>
+  <rect x="166" y="56" width="258" height="198" rx="30" fill="url(#teeth)"/>
+  <!-- paste -->
+  <path d="M232 226 c10 -16 40 -20 56 -8 c14 -10 40 -4 44 12 c-8 12 -40 16 -60 12 c-18 4 -36 -2 -40 -16z" fill="#859c46" stroke="#4a5f24" stroke-width="2"/>
+  <!-- rhizome end, seen from above -->
+  <circle cx="295" cy="140" r="46" fill="#859c46" stroke="#4a5f24" stroke-width="3"/>
+  <circle cx="295" cy="140" r="30" fill="none" stroke="#4a5f24" stroke-width="1.6" stroke-dasharray="3 5"/>
+  <circle cx="295" cy="140" r="8" fill="#4a5f24"/>
+  <!-- circular motion -->
+  <path d="M232 100 A76 76 0 1 1 228 178" stroke="#111" stroke-width="3" fill="none" marker-end="url(#ah)"/>
+  </g>
+  <!-- labels -->
+  <text x="10" y="64" font-size="17" fill="#111">SLOW,</text>
+  <text x="10" y="83" font-size="17" fill="#111">GENTLE</text>
+  <text x="10" y="102" font-size="17" fill="#111">CIRCLES</text>
+  <path d="M80 96 C150 96 200 98 234 104" stroke="#111" stroke-width="1.6" fill="none"/>
+  <text x="10" y="222" font-size="17" fill="#111">PASTE</text>
+  <text x="10" y="241" font-size="17" fill="#111">GATHERS</text>
+  <text x="10" y="260" font-size="13" fill="#6b6b6b" font-weight="500">serve within about 15 min</text>
+  <path d="M92 236 C150 236 200 232 250 230" stroke="#111" stroke-width="1.6" fill="none"/>
+  <text x="545" y="112" font-size="17" fill="#111" text-anchor="middle">FINE GRATER</text>
+  <text x="545" y="206" font-size="14" fill="#6b6b6b" font-weight="500" text-anchor="middle">sharkskin, ceramic</text>
+  <text x="545" y="223" font-size="14" fill="#6b6b6b" font-weight="500" text-anchor="middle">or metal</text>
+  <text x="295" y="306" font-size="15" fill="#6b6b6b" font-weight="500" text-anchor="middle">Cut end flat against the grater, top (stem) end first</text>
+</svg></div>
+          <div class="body">
+            <p class="eyebrow">Kitchen Guide</p>
+            <h3>From rhizome to plate.</h3>
+            <p>Store it, grate it in slow circles, and serve it within minutes. Plus what to do with the leaves.</p>
+            <span class="go">Read the guide &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
     <section class="grow" aria-labelledby="grow-heading">
       <div class="inner">
         <div>
           <p class="eyebrow">From our grow site</p>
           <h2 id="grow-heading">Cool shade, moving water, and patience.</h2>
           <p>Wasabi is one of the most demanding crops there is, and it takes around two years to reach harvest size. These photos are from our own patch.</p>
-          <a class="btn btn-ghost" href="facts.html">Learn how it grows</a>
+          <a class="btn btn-ghost" href="grow.html">Grow your own</a>
         </div>
         <div class="photos">
           <figure>
@@ -134,6 +228,7 @@
       </div>
       <ul>
         <li><a href="shipping.html">Shipping</a></li>
+        <li><a href="faq.html">FAQ</a></li>
         <li><a href="refunds.html">Refunds</a></li>
         <li><a href="privacy.html">Privacy Policy</a></li>
       </ul>
@@ -165,5 +260,7 @@
       box.addEventListener('close', function () { big.removeAttribute('src'); });
     })();
   </script>
+  <script src="ship.js"></script>
+  <script src="site.js"></script>
 </body>
 </html>
