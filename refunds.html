@@ -5,7 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Refund Policy | Appalachian Wasabi</title>
   <meta name="description" content="Appalachian Wasabi's refund and replacement policy for fresh and perishable products.">
+  <link rel="canonical" href="https://appalachianwasabi.com/refunds.html">
   <link rel="icon" href="favicon.png">
+
+  <!-- Link previews on Facebook, LinkedIn, iMessage, etc. -->
+  <meta property="og:site_name" content="Appalachian Wasabi">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Refund Policy">
+  <meta property="og:description" content="Appalachian Wasabi's refund and replacement policy for fresh and perishable products.">
+  <meta property="og:url" content="https://appalachianwasabi.com/refunds.html">
+  <meta property="og:image" content="https://appalachianwasabi.com/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,12 +41,12 @@
       </button>
       <nav aria-label="Main" id="site-nav">
         <ul>
-          <li><a href="#" data-inactive>About Us</a></li>
+          <li><a href="about.html">About Us</a></li>
           <li><a href="facts.html">About Wasabi</a></li>
           <li><a href="grow.html">Growing Guide</a></li>
           <li><a href="kitchen.html">Kitchen Guide</a></li>
+          <li><a href="journal.html">Journal</a></li>
           <li><a href="collaboration.html">Collaboration</a></li>
-          <li><a href="#" data-inactive>Contact Us</a></li>
           <li><a href="shop.html" class="nav-buy">Shop</a></li>
         </ul>
       </nav>
@@ -86,6 +96,7 @@
       <div>
         <div class="name">Appalachian Wasabi</div>
         <div>&copy; <span id="year">2026</span> Appalachian Wasabi. All rights reserved.</div>
+        <ul class="social social-footer" data-social aria-label="Follow Appalachian Wasabi"></ul>
       </div>
       <ul>
         <li><a href="shipping.html">Shipping</a></li>
@@ -96,13 +107,12 @@
     </div>
   </footer>
 
+  <script src="ship.js"></script>
+  <script src="social.js"></script>
+  <script src="site.js"></script>
+
   <script>
-    document.querySelectorAll('a[data-inactive]').forEach(function (a) {
-      a.addEventListener('click', function (e) { e.preventDefault(); });
-    });
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-  <script src="ship.js"></script>
-  <script src="site.js"></script>
 </body>
 </html>

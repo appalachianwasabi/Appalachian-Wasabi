@@ -5,13 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Appalachian Wasabi</title>
   <meta name="description" content="Cultivating and offering authentic wasabi grown right here in Appalachia.">
+  <link rel="canonical" href="https://appalachianwasabi.com/">
   <link rel="icon" href="favicon.png">
+
+  <!-- Link previews on Facebook, LinkedIn, iMessage, etc. -->
+  <meta property="og:site_name" content="Appalachian Wasabi">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Appalachian Wasabi">
+  <meta property="og:description" content="Cultivating and offering authentic wasabi grown right here in Appalachia.">
+  <meta property="og:url" content="https://appalachianwasabi.com/">
+  <meta property="og:image" content="https://appalachianwasabi.com/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script>document.documentElement.classList.add('js');</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Appalachian Wasabi",
+    "url": "https://appalachianwasabi.com/",
+    "logo": "https://appalachianwasabi.com/logo.png",
+    "sameAs": [
+      "https://www.instagram.com/appalachianwasabi",
+      "https://www.facebook.com/appalachianwasabi",
+      "https://www.tiktok.com/@appalachian.wasab",
+      "https://www.linkedin.com/company/appalachianwasabi"
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -31,12 +56,12 @@
       </button>
       <nav aria-label="Main" id="site-nav">
         <ul>
-          <li><a href="#" data-inactive>About Us</a></li>
+          <li><a href="about.html">About Us</a></li>
           <li><a href="facts.html">About Wasabi</a></li>
           <li><a href="grow.html">Growing Guide</a></li>
           <li><a href="kitchen.html">Kitchen Guide</a></li>
+          <li><a href="journal.html">Journal</a></li>
           <li><a href="collaboration.html">Collaboration</a></li>
-          <li><a href="#" data-inactive>Contact Us</a></li>
           <li><a href="shop.html" class="nav-buy">Shop</a></li>
         </ul>
       </nav>
@@ -70,9 +95,9 @@
         <h2 id="explore-heading">Explore the farm</h2>
         <ul class="rows">
           <li>
-            <a class="row" href="#" data-inactive>
+            <a class="row" href="about.html">
               <span class="title">About Us</span>
-              <span class="desc">The farm, the growers, and why we chose Appalachia.</span>
+              <span class="desc">How a question in the holler grew into a farm.</span>
             </a>
           </li>
           <li>
@@ -102,13 +127,13 @@
           <li>
             <a class="row" href="collaboration.html">
               <span class="title">Collaboration</span>
-              <span class="desc">Chefs, restaurants, and fellow growers: let's work together.</span>
+              <span class="desc">Chefs, landowners, growers, and anyone with a question: get in touch.</span>
             </a>
           </li>
           <li>
-            <a class="row" href="#" data-inactive>
-              <span class="title">Contact Us</span>
-              <span class="desc">Questions, orders, or just to say hello.</span>
+            <a class="row" href="journal.html">
+              <span class="title">Journal</span>
+              <span class="desc">Harvest notes, growing lessons and recipes from the holler.</span>
             </a>
           </li>
         </ul>
@@ -186,6 +211,20 @@
       </div>
     </section>
 
+
+    <section class="latest" aria-labelledby="latest-heading">
+      <div class="inner">
+        <div class="latest-head">
+          <div>
+            <p class="eyebrow">From the holler</p>
+            <h2 id="latest-heading">Journal</h2>
+          </div>
+          <a class="btn btn-ghost" href="journal.html">All posts</a>
+        </div>
+        <div class="post-grid" data-posts data-limit="3"></div>
+      </div>
+    </section>
+
     <section class="grow" aria-labelledby="grow-heading">
       <div class="inner">
         <div>
@@ -213,6 +252,48 @@
       </div>
     </section>
 
+
+    <section class="notify" id="notify" aria-labelledby="notify-heading">
+      <div class="inner">
+        <div class="notify-copy">
+          <p class="eyebrow">Season notices</p>
+          <h2 id="notify-heading">Know when the harvest opens.</h2>
+          <p>Fresh rhizomes and plant starts ship in spring and fall only. Leave your email and we&rsquo;ll let you know when each season opens. A few emails a year, nothing more.</p>
+          <div class="follow" data-social-section hidden>
+            <p class="follow-label">Or follow along</p>
+            <ul class="social" data-social aria-label="Follow Appalachian Wasabi"></ul>
+          </div>
+        </div>
+        <div>
+          <div class="notice" id="notify-thanks" role="status" hidden>
+            <strong>You&rsquo;re on the list.</strong>
+            We&rsquo;ll email you when the next season opens.
+          </div>
+          <form class="notify-form" id="notify-form" action="https://formsubmit.co/ab82d28a444f08eb1af7b8422cebb4b5" method="POST">
+            <input type="hidden" name="_subject" value="Season notice sign-up from appalachianwasabi.com">
+            <input type="hidden" name="_next" value="https://appalachianwasabi.com/index.html?subscribed=1#notify">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="form" value="Season notice sign-up">
+            <div class="hp" aria-hidden="true">
+              <label for="notify-honey">Leave this field empty</label>
+              <input type="text" name="_honey" id="notify-honey" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="notify-email">Email</label>
+              <input type="email" id="notify-email" name="email" required autocomplete="email" placeholder="you@example.com">
+            </div>
+            <fieldset class="field checks">
+              <legend>Tell me about</legend>
+              <label><input type="checkbox" name="interested_in" value="Fresh rhizomes" checked> Fresh rhizomes</label>
+              <label><input type="checkbox" name="interested_in" value="Plant starts" checked> Plant starts</label>
+            </fieldset>
+            <button class="btn btn-primary" type="submit">Notify me</button>
+            <p class="form-note">We&rsquo;ll only use your email for season notices. See our <a href="privacy.html">privacy policy</a>.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <dialog class="lightbox" id="lightbox" aria-label="Enlarged photo">
@@ -225,6 +306,7 @@
       <div>
         <div class="name">Appalachian Wasabi</div>
         <div>&copy; <span id="year">2026</span> Appalachian Wasabi. All rights reserved.</div>
+        <ul class="social social-footer" data-social aria-label="Follow Appalachian Wasabi"></ul>
       </div>
       <ul>
         <li><a href="shipping.html">Shipping</a></li>
@@ -235,11 +317,12 @@
     </div>
   </footer>
 
+  <script src="ship.js"></script>
+  <script src="social.js"></script>
+  <script src="site.js"></script>
+  <script src="posts.js"></script>
+
   <script>
-    // Placeholder links: keep the page from jumping until real pages exist.
-    document.querySelectorAll('a[data-inactive]').forEach(function (a) {
-      a.addEventListener('click', function (e) { e.preventDefault(); });
-    });
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Tap a grow-site photo to see it enlarged. Without JavaScript the link opens the photo itself.
@@ -260,7 +343,5 @@
       box.addEventListener('close', function () { big.removeAttribute('src'); });
     })();
   </script>
-  <script src="ship.js"></script>
-  <script src="site.js"></script>
 </body>
 </html>
